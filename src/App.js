@@ -1,14 +1,13 @@
 import React, { useEffect } from "react";
 import "./App.css";
-const api = process.env;
 function App() {
   const [products, setProducts] = React.useState(null);
 
   useEffect(() => {
-    console.log("API", JSON.stringify(api));
-    // fetch()
-    //   .then((res) => res.json())
-    //   .then((data) => setProducts(data));
+    console.log("API", process.env.REACT_APP_API_URL);
+    fetch(process.env.REACT_APP_API_URL)
+      .then((res) => res.json())
+      .then((data) => setProducts(data));
   }, []);
 
   return (
