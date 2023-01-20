@@ -5,7 +5,7 @@ function App() {
   const [products, setProducts] = React.useState(null);
 
   useEffect(() => {
-    fetch(`process.env.api_url`)
+    fetch(`${process.env.api_url}`)
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
